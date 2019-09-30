@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/plugin.css">
+	<link rel="stylesheet" type="text/css" href="../css/ZJydge.css">
+	<script src="/js/jquery-2.0.2.min.js"></script>
+	<script src="/js/jquery.ajaxupload.js"></script>
+	<script src="/js/dashboard.js"></script>
+	<script src="/js/changefile.js"></script>
+	<script src="/js/BranchViewListing.js"></script>
+	<script src="/js/Common.js"></script>
+	<script src="/js/console.js"></script>
+
+	<script id="mult-dmn-usr-clone" type="text/template">
+		
+		<div class="ui-branc-details"
+			style="padding-bottom: 8px; padding-top: 8px;">
+
+				<p class="ui-branch-name"></p>
+				<p class="ui-branch-owner"></p>
+				<div class="custom-select" style="width:200px;">
+				  <select class="ui-localzoho-machine">
+				    <option value="0">select</option>
+				    <option value="87">WRITER_ZOHOCORP(Integ)</option>
+				    <option value="142">WRITERZ</option>
+				    <option value="218">ZOHOWRITER_4_0</option>
+				    <option value="239">ZOHOWRITER_2_0</option>
+				    <option value="240">WRITER_3_REDIS</option>
+				    <option value="242">WRITERDEMO</option>
+				    <option value="333">ZOHOWRITER_WEB</option>
+				    <option value="359">ZOHOPAD</option>
+				    <option value="600">WRITER_MOBILE</option>
+				    <option value="660">WRITER_PROOFING</option>
+				    <option value="854">WRITER_GRAMMAR</option>
+				  </select>
+				</div>
+				<button class="ui-start" data="" >START</button>
+				<div class="ui-merge"> </div>
+		</div>
+	</script>
+	<script id="branchDetailTemp" type="text/template">
+		<li class="ui-branc-details clearfix">
+			<div class="ui-Priority" ></div>
+			<div class="ui-userPic ui-fl"></div>
+			<div class="ui-fl">
+				<div class="ui-branchName"></div>
+				<div class="ui-branchInfo"></div>
+			</div>
+			<div class="ui-footer clearfix">
+				<div class="ui-view ui-fr" >View</div>
+				<div class="ui-edit ui-fr">Edit</div>
+			</div>	
+			<div class="ui-sdIcon"></div>				
+		</li>
+	</script>
+	<!-- <script id="changePilePathMain" type="text/template">
+		<div class="select-box" id="ui-changeFile_filePath" style="width: 300px; margin-top: 58px ">
+			<div id="rerender">
+			  <div class="select-box__current" tabindex="3">
+			  	<div class="select-box__value">
+				      <input class="select-box__input" type="radio" id="0" value="01" name="FilePath" checked="checked"/>
+				      <p class="select-box__input-text">Select A File Path</p>
+				    </div>	    
+
+				    <img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon" aria-hidden="true"/>
+
+				  </div>
+			  <ul class="select-box__list" style="width: 300px;">
+			  </ul>
+			</div>
+		</div>
+	</script>  -->
+	<script id="changefile_path" type="text/template">
+		<div class="select-box__value ui-filePath">
+	      <input class="select-box__input" type="radio" value="" name="FilePath"/>
+	      <p class="select-box__input-text" style="font-size: 14px;"></p>
+	    </div>
+	</script>
+	<script id="changefile_pathLabel" type="text/template">
+		<li class="ui-filePath">
+	      <label class="select-box__option" style="font-size: 14px;" for="0" aria-hidden="aria-hidden">select group</label>
+	    </li>
+	</script>
+
+	<script id="changefile_field" type="text/template">
+		<div class="field__token">
+			<button class="field__close">
+				<svg class="ztokenfield__svg">
+					<use xlink:href="#ztokenfield__closebutton"></use>
+				</svg>
+			</button>
+			<span class="field__text" ></span>
+		</div>
+	</script>
+</head>
+<body style="padding: 0;background-image: none;">
+	<div class="ui-chrome-addon">
+
+
+		
+		<div class="ui-top-penal">
+			<p class="ui-title">WRITER QA</p>
+		</div>
+		<!-- <p class="ui-title">WRITER QA</p> -->
+		<div class="ui-pro-img-tit">
+				<img class="ui-leftpenal-writer-logo" src="../images/writer-logo.png">
+				<h1>WRITER QA</h1>
+		</div>
+		<div class="ui-leftpenal">
+			<div class="ui-profileMenu">
+			<div class="ui-procutImage"></div>
+			<img class="ui-userimage" src="../images/icon-user.png">
+			<p class="ui-name ui-userDel">....</p>
+			<p class="ui-email-id ui-userDel">....@zohocorp.com</p>
+		</div>
+			
+			<div class="ui-leftpenal-option ui-text_style urf"><span class="ui-urf-txt">Update Request Form</span>
+				<div class="ui-urf">
+					<div class="ui-urf-wfr ui-urf-option ui-text_style "><span class="ui-tft">Waiting For Review</span></div>
+					<div class="ui-urf-rc ui-urf-option ui-text_style "><span class="ui-tft">Review Completed</span></div>
+					<div class="ui-urf-eu ui-urf-option ui-text_style "><span class="ui-tft">Emergency Update</span></div>
+					<div class="ui-urf-tft ui-urf-option ui-text_style "><span class="ui-tft">Taken For Testing</span></div>
+					<div class="ui-urf-rtp ui-urf-option ui-text_style "><span class="ui-tft">Ready To Push</span></div>
+				</div>
+			</div>
+			<div class="ui-leftpenal-option ui-text_style cus" style=" top: 34%	;"><span class="ui-cus">Local Build Update</span></div>
+			<div class="ui-leftpenal-option ui-text_style changeFile" style=" top: 40%	;"><span class="ui-changeFile">Change Files </span></div>
+			<div class="ui-leftpenal-option ui-text_style permission" style=" top: 46%	;"><span class="ui-permission">Permissions</span></div>
+			<div class="ui-leftpenal-option ui-text_style BranchMerge" style=" top: 52%	;"><span class="ui-BMerge">Branch Merge</span></div>
+			<div class="ui-leftpenal-option ui-text_style ui-console" style=" top: 58%	;"><span class="ui-consoleTxt">Console</span></div>
+		</div>
+		
+		<div class="ui-branch-listing">
+			<button class="ui-lab" data="" >LOCK ALL BRANCHES</button>
+			<button class="ui-mab" data="" >MERGE ALL BRANCHES</button>
+			<button class="ui-ulab" data="" >UNLOCK ALL BRANCHES</button>
+			<img class="ui-loading" src="../images/loading.gif">
+			
+
+			<div class="ui-toverlay">
+				<div class="ui-branch_info">
+					<p class="ui-tbranchInfo"></p>
+					<p class="ui-tfeatures_DetailsTitle">Features Details</p>
+					<div class="ui-features_Details">
+						
+					</div>
+					<p class="ui-tUsecasesTitle">Usecases</p>
+					<div class="ui-tUsecases">
+						
+					</div>
+					<div class="ui-branchTagDiff" ></div>
+				</div>
+				<div class="ui-branchLogDiv"></div>
+			</div>
+			
+		</div>
+		<div class="ui-changeFile_MainDiv">
+
+			<div class="select-box" style="width: 300px; margin-top: -50px; z-index: 11;">
+			  <div class="select-box__current" tabindex="1">
+			    <div class="select-box__value">
+			      <input class="select-box__input" type="radio" id="4_0" value="4_0" name="Ben" checked="checked"/>
+			      <p class="select-box__input-text">ZOHOWRITER_4_0</p>
+			    </div>
+			    
+			    <img class="select-box__icon" src="../images/img_295694.svg" alt="Arrow Icon" aria-hidden="true"/>
+			  </div>
+			  <ul class="select-box__list" style="width: 300px; z-index: 11;">
+			    <li>
+			      <label class="select-box__option" for="4_0" aria-hidden="aria-hidden">ZOHOWRITER_4_0</label>
+			    </li>
+			    
+			  </ul>
+			</div>
+			<!-- <select class="ui-change_proName ui-select">
+				<option value="0">ZOHOWRITER_4_0</option>
+			</select> -->
+			<div class="select-box" style="width: 300px;margin-top: 38px; z-index: 10;">
+			  <div class="select-box__current" tabindex="2">
+			    <div class="select-box__value">
+			      <input class="select-box__input" type="radio" id="0" value="0" name="Group" checked="checked"/>
+			      <p class="select-box__input-text">select group</p>
+			    </div>
+			    <div class="select-box__value">
+			      <input class="select-box__input" type="radio" id="1" value="LOCAL" name="Group" />
+			      <p class="select-box__input-text">LOCAL</p>
+			    </div>
+			    <div class="select-box__value">
+			      <input class="select-box__input" type="radio" id="2" value="US" name="Group"/>
+			      <p class="select-box__input-text">US</p>
+			    </div>
+			    <div class="select-box__value">
+			      <input class="select-box__input" type="radio" id="3" value="EU" name="Group" />
+			      <p class="select-box__input-text">EU</p>
+			    </div>
+			    <div class="select-box__value">
+			      <input class="select-box__input" type="radio" id="4" value="CN" name="Group" />
+			      <p class="select-box__input-text">CN</p>
+			    </div>
+			    <div class="select-box__value">
+			      <input class="select-box__input" type="radio" id="5" value="IN" name="Group" />
+			      <p class="select-box__input-text">IN</p>
+			    </div>
+			    <div class="select-box__value">
+			      <input class="select-box__input" type="radio" id="6" value="AU" name="Group" />
+			      <p class="select-box__input-text">AU</p>
+			    </div>
+			    <img class="select-box__icon" src="../images/img_295694.svg" alt="Arrow Icon" aria-hidden="true"/>
+			  </div>
+			  <ul class="select-box__list" style="width: 300px; z-index: 10;">
+			    <li>
+			      <label class="select-box__option ui-groupName" for="0" aria-hidden="aria-hidden">select group</label>
+			    </li>
+			    <li>
+			      <label class="select-box__option ui-groupName" for="1" aria-hidden="aria-hidden" value="Local">LOCAL</label>
+			    </li>
+			    <li>
+			      <label class="select-box__option ui-groupName" for="2" aria-hidden="aria-hidden" value="US4,US3">US</label>
+			    </li>
+			    <li>
+			      <label class="select-box__option ui-groupName" for="3" aria-hidden="aria-hidden" value="EU1,EU2">EU</label>
+			    </li>
+			    <li>
+			      <label class="select-box__option ui-groupName" for="4" aria-hidden="aria-hidden" value="CN2,CN3">CN</label>
+			    </li>
+			    <li>
+			      <label class="select-box__option ui-groupName" for="5" aria-hidden="aria-hidden" value="IN1,IN2">IN</label>
+			    </li>
+			    <li>
+			      <label class="select-box__option ui-groupName" for="6" aria-hidden="aria-hidden" value="AU1">AU</label>
+			    </li>
+			    
+			  </ul>
+			</div>
+
+			<div id="ui-changeFilePath-MainDiv">
+				<div class="select-box" id="ui-changeFile_filePath" style="width: 500px; margin-top: 58px ;z-index: 9;">
+				  <div class="select-box__current" tabindex="3">	
+
+				  	<div class="select-box__value">
+				      <input class="select-box__input" type="radio" id="01" name="FilePath" checked="checked"/>
+				      <p class="select-box__input-text">Select A File Path</p>
+				    </div>	    
+
+				    <img class="select-box__icon" src="../images/img_295694.svg" alt="Arrow Icon" aria-hidden="true"/>
+
+				  </div>
+				  <ul class="select-box__list" style="width: 500px; z-index: 9;">
+
+				  	<li>
+				      <label class="select-box__option ui-default" for="01" aria-hidden="aria-hidden">Select A File Path</label>
+				    </li>
+
+				  </ul>
+				</div>
+			</div>
+
+			<div id="ui-changeFilePathVal-MainDiv">
+				
+				<input type="text" placeholder="Add New Key And Value" class="field__textbox" style="width: 166px;height: 27px;outline: none;">
+			</div>
+			
+			
+			<input type="checkbox" name="" class="ui-changeAllDeployment">Apply All Deployment</input>
+			<input type="checkbox" name="" class="ui-changeDomain">Change Domain Name</input>
+			<button class="ui-change" data="" >Done</button>
+		</div>
+		<div class="ui-permission_MainDiv">
+			<input type="text" name="" class="ui-branch_name" placeholder="Enter Branch Name"></input>
+			<input type="text" name="" class="ui-branch_Owner" placeholder="Enter Branch Owner"></input>
+			<button class="ui-permissionChanges" data="" >START</button>
+		</div>
+		<div class="ui-merge_MainDiv">
+			<input type="text" name="" class="ui-MergeBranch_name" placeholder="Enter Branch Name"></input>
+			<div class="custom-select-option" style="width:200px;">
+					  <select class="ui-branchMerge_selectOption ui-select">
+					    	<option value="0">select</option>
+						    <option value="qa">QA Branch</option>
+						    <option value="default">Default Branch</option>
+						    <option value="conversion">Conversion Branch</option>
+						   
+					  </select>
+				</div>
+			<button class="ui-branchMerge" data="" >START</button>
+		</div>
+		<div class="ui-console_MainDiv">
+			<div class="ui-console_responseTxt"></div>
+			<div class="ui-QAAdmin_txt"><span>Writer-QA Admin Console $ </span></div>
+			<input type="text" name="" class="ui-console_msg"></input>
+			<div class="ui-suggestion ui-none">
+				  <div class="ui-option" value="mergeAll ">@ Merge All</div>
+				  <div class="ui-option" value="qamerge ">@ QA Merge with</div>
+				  <div class="ui-option" value="defaultmerge ">@ Default Merge with </div>
+			</div>
+		</div>
+		<div class="ui-custome">
+			<div class="ui-cust_div">
+				<input type="text" name="" class="ui-cur-branch-name" placeholder="Branch Name (OR)  Branch URL"></input>
+				<div class="custom-select-option" style="width:200px;">
+					  <select class="ui-localzoho-machine ui-select">
+					    	<option value="0">select</option>
+						    <option value="87">WRITER_ZOHOCORP(Integ)</option>
+						    <option value="142">WRITERZ</option>
+						    <option value="218">ZOHOWRITER_4_0</option>
+						    <option value="239">ZOHOWRITER_2_0</option>
+						    <option value="240">WRITER_3_REDIS</option>
+						    <option value="242">WRITERDEMO</option>
+						    <option value="333">ZOHOWRITER_WEB</option>
+						    <option value="359">ZOHOPAD</option>
+						    <option value="600">WRITER_MOBILE</option>
+						    <option value="660">WRITER_PROOFING</option>
+						    <option value="854">WRITER_GRAMMAR</option>
+					  </select>
+				</div>
+				<input type="checkbox" name="static" class="ui-static"> Enable local Static<br>
+				<button class="ui-start-build" data="" >START</button>
+			</div>
+		</div>
+		<!-- <div class="sub-mainDiv">
+			<div><span>Taken For Testing</span></div>
+		</div> -->
+	</div> 
+	<div class="ui-sd">
+		<div class="ui-sdMain">
+				<span> Branch Name </span> <div class="ui-sd-buildName"></div>
+				<span> Branch URL</span> <input type="text" value="" class="ui-sd-buildUrl" ></input>
+				<div class="custom-select" style="width:200px;">
+				  <select class="ui-localzoho-machine">
+				    <option value="0">select</option>
+				    <option value="87">WRITER_ZOHOCORP(Integ)</option>
+				    <option value="142">WRITERZ</option>
+				    <option value="218">ZOHOWRITER_4_0</option>
+				    <option value="239">ZOHOWRITER_2_0</option>
+				    <option value="240">WRITER_3_REDIS</option>
+				    <option value="242">WRITERDEMO</option>
+				    <option value="333">ZOHOWRITER_WEB</option>
+				    <option value="359">ZOHOPAD</option>
+				    <option value="600">WRITER_MOBILE</option>
+				    <option value="660">WRITER_PROOFING</option>
+				    <option value="854">WRITER_GRAMMAR</option>
+				  </select>
+				</div>
+				<button class="ui-Submit" >Submit</button>
+		</div>
+
+		<div class="ui-updateChangeFileVal">
+			<span> Value</span> <input type="text" value="" class="ui-ChangeFileVal" ></input>
+			<button class="ui-valueChange" >Change</button>
+		</div>
+	</div>
+	<svg id="zw-plugin-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
+		
+		<symbol viewBox="0 0 16 16" width="100%" height="100%" id="ztokenfield__closebutton"><rect x="1.5" y="7.4" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3137 8)" class="st0" width="13" height="1.1"></rect><rect x="1.5" y="7.4" transform="matrix(0.7071 0.7071 -0.7071 0.7071 8 -3.3137)" class="st0" width="13" height="1.1"></rect></symbol>
+	</svg>
+</body>
+</html>

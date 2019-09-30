@@ -1,0 +1,889 @@
+/* $Id$ */
+@font-face {
+	font-family: "proxima_nova_rgregular";
+	src: url("https://fonts.zohostatic.com/proxima/ProximaNova-Reg-webfont.eot");
+	src: url("https://fonts.zohostatic.com/proxima/ProximaNova-Reg-webfont.eot?#iefix") format("embedded-opentype"), url("https://fonts.zohostatic.com/proxima/ProximaNova-Reg-webfont.woff") format("woff"), url("https://fonts.zohostatic.com/proxima/ProximaNova-Reg-webfont.ttf") format("truetype"), url("https://fonts.zohostatic.com/proxima/ProximaNova-Reg-webfont.svg#proxima_nova_rgregular") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "proxima_novasemibold";
+	src: url("https://fonts.zohostatic.com/proxima/ProximaNova-Sbold-webfont.eot");
+	src: url("https://fonts.zohostatic.com/proxima/ProximaNova-Sbold-webfont.eot?#iefix") format("embedded-opentype"), url("https://fonts.zohostatic.com/proxima/ProximaNova-Sbold-webfont.woff") format("woff"), url("https://fonts.zohostatic.com/proxima/ProximaNova-Sbold-webfont.ttf") format("truetype"), url("https://fonts.zohostatic.com/proxima/ProximaNova-Sbold-webfont.svg#proxima_novasemibold") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+body {
+	margin: 0px;
+	font-family: proxima_nova_rgregular;
+}
+.clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+input[type="file"] {
+	display: none;
+}
+label {
+	cursor: pointer;
+}
+.ui-chrome-addon {
+	font-size: 13px;
+	color: #000;
+	border: 0px solid #CDCDCD;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+}
+.ui-branch-owner{
+	position: absolute;
+    left: 415px;
+    top: 8px;
+}
+.ui-start{
+    position: absolute;
+    left: 986px ;
+    top: 20px;
+    width: 150px;
+    height: 33px;
+    background: #0088ff;
+    border-radius: 3px;
+    font-size: 19px;
+    font-family: sans-serif;
+    color: white;
+    cursor: pointer;
+}
+.ui-start-build{
+    position: absolute;
+    left: 63px;
+    top: 254px;
+    width: 150px;
+    height: 33px;
+    background: #0088ff;
+    border-radius: 3px;
+    font-size: 19px;
+    font-family: sans-serif;
+    color: white;
+}
+.ui-static {
+    margin-top: 222px;
+    margin-left: 71px;
+}
+.ui-change{
+    margin-left: 189px;
+    margin-top: 19px;
+    width: 243px;
+    height: 42px;
+    background: #0088ff;
+    border-radius: 3px;
+    font-size: 19px;
+    font-family: sans-serif;
+    color: white;
+}
+.ui-branch-name{
+    color: white;
+    font-weight: 500;
+    margin-left: 10px;
+
+}
+/*a{
+    color: white;
+    text-decoration:none;
+}*/
+li a {
+    color: red;
+    text-decoration: none;
+}
+.custom-select{
+    position: absolute;
+    top: 194px;
+    left: 183px;
+}
+.custom-select select{
+    width: 345px;
+    height: 38px;
+}
+select{
+    width: 128px;
+    height: 30px;
+}
+.ui-branch-listing{
+	display: none;
+	position: absolute;
+    left: 15%;
+    top: 7%;
+    background: #fff;
+    width: 85%;
+    height: 93%;
+    overflow: scroll;
+    z-index: -2;
+}
+.ui-branch_info{
+    display: none;
+    position: absolute;
+    margin-left: 966px;
+    margin-top: 462px;
+    transform: translate(-50%, -50%);
+    width: 1427px;
+    height: 800px;
+    background: #fff;
+    overflow: scroll;
+}
+.ui-toverlay{
+    display: none;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.5);
+}
+.ui-lab{
+    position: absolute;
+    display: none;
+    left: 91%;
+    width: 9%;
+    height: 5%;
+    background: #d02d2d;
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: sans-serif;
+    color: white;
+    z-index: 10;
+}
+.ui-ulab{
+    position: absolute;
+    display: none;
+    top: 6%;
+    left: 91%;
+    width: 9%;
+    height: 5%;
+    background: #d02d2d;
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: sans-serif;
+    color: white;
+    z-index: 10;
+}
+.ui-mab{
+    position: absolute;
+    display: none;
+    top: 12%;
+    left: 91%;
+    width: 9%;
+    height: 5%;
+    background: #d02d2d;
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: sans-serif;
+    color: white;
+    z-index: 10;
+}
+.ui-loading{
+    position: absolute;
+    z-index: 10;
+    /*width: 61px;
+    height: 53px;*/
+    left: 42.5%;
+    top: 44%;
+}
+.ui-leftpenal{
+	width: 15%;
+    height: 100%;
+    background: #141516;;
+    position: absolute;
+    z-index: -1;
+}
+h1{
+	position: absolute;
+    color: white;
+    text-indent: 39px;
+    font-size: 15px;
+}
+.ui-leftpenal-option{
+	position: absolute;
+    top: 28%;
+    width: 98%;
+    height: 6%;
+    border-left: 4px solid transparent;
+    border-bottom: 1px solid #484848;
+}
+.ui-text_style{
+    font-size: 17px;
+    font-weight: bold;
+    font-family: sans-serif;
+    cursor: pointer;
+    color: white;
+    /*border-bottom: 2px solid #267dea;*/
+}
+.ui-title{
+	position: absolute;
+    left: 42.5%;
+    font-size: 26px;
+    top: -17px;
+    font-family: sans-serif;
+    color: white;
+}
+.ui-leftpenal-writer-logo{
+    width: 22px;
+    position: absolute;
+    padding: 10px;
+}
+.ui-top-penal{
+    width: 85%;
+    height: 7%;
+    position: absolute;
+    background: #141516;
+    left: 15%;
+    z-index: -1;
+}
+.ui-urf-option{
+    border-left: 4px solid transparent;
+}
+.ui-leftpenal-option:hover,.ui-urf-option:hover{
+    color:#fff;
+    background-color:#000000;
+    border-left: 4px solid #267dea;
+    /*border-bottom: 1px solid #484848;*/
+}
+.ui-urf-txt{
+    margin-left: 27px;
+    margin-top: 13px;
+    position: absolute;
+}
+.ui-cus{
+    margin-left: 27px;
+    margin-top: 13px;
+    position: absolute;
+}
+.ui-changeFile{
+    margin-left: 27px;
+    margin-top: 13px;
+    position: absolute;
+}
+.ui-permission{
+    margin-left: 27px;
+    margin-top: 13px;
+    position: absolute;
+}
+.ui-BMerge{
+    margin-left: 27px;
+    margin-top: 13px;
+    position: absolute;
+}
+.ui-consoleTxt{
+    margin-left: 27px;
+    margin-top: 13px;
+    position: absolute;
+}
+.ui-procutImage{
+    background-image: url(../images/writer-logo.png);
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    background-position: 38px 17px;
+    background-size: 166px;
+    width: 256px;
+    height: 201px;
+}
+.ui-merge_MainDiv {
+    display: none;
+    position: absolute;
+    left: 15%;
+    top: 7%;
+    width: 85%;
+    height: 95%;
+    background: white;
+    z-index: -2;
+}
+.ui-console_MainDiv {
+    display: none;
+    position: absolute;
+    left: 15%;
+    top: 7%;
+    width: 85%;
+    height: 95%;
+    background: black;
+    z-index: -2;
+    overflow: scroll;
+}
+.ui-console_responseTxt{
+    font-size: 16px;
+    color: white;
+    padding: 15px;
+    padding-bottom: 0px;
+
+}
+.ui-QAAdmin_txt{
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+    float: left;
+}
+.ui-console_msg{
+    margin-top: 13px;
+    background: none;
+    border: none;
+    color: white;
+    outline: none;
+    height: 21px;
+    font-size: 16px;
+}
+.ui-profileMenu{
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    top: 2%;
+}
+.ui-userDel{
+    position: absolute;
+    color: white;
+    top: 129px;
+    left: 106px;
+}
+.ui-email-id{
+
+    top: 148px;
+    left: 24px;
+}
+.ui-userimage{
+    position: absolute;
+    width: 63px;
+    border-radius: 38px;
+    top: 67px;
+    left: 92px;
+    background-position: 50%;
+    background-size: cover;
+}
+.ui-pro-img-tit{
+    position: absolute;
+    left: 92%;
+    top: 6px;
+    width: 122px;
+}
+.ui-custome{
+    display: none;
+    position: absolute;
+    width: 85%;
+    height: 93%;
+    left: 15%;
+    top: 7%;
+    background-color: white;
+    z-index: -2;
+}
+.ui-cust_div{
+    position: absolute;
+    left: 42.5%;
+    top: 11.5%;
+}
+.ui-cur-branch-name{
+    position: absolute;
+    top: 110px;
+    width: 263px;
+    height: 33px;
+}
+.ui-changeFile_key{
+    position: absolute;
+    left: 173px;
+    top: 34px;
+    width: 263px;
+    height: 86px;
+    font-size: 13px;
+    text-align: center;
+}
+.ui-changeFile_value{
+    margin-top: 19px;
+    margin-left: 175px;
+    width: 263px;
+    height: 86px;
+    font-size: 13px;
+    text-align: center;
+}
+.ui-changeAllDeployment{
+    margin-top: 19px;
+    margin-left: 175px;
+    font-size: 13px;
+    text-align: center;
+}
+.ui-select{
+    width: 266px;
+    height: 30px;
+}
+.custom-select-option{
+    position: absolute;
+    top: 173px;
+}
+.ui-changeFile_MainDiv{
+    position: absolute;
+    left: 697px;
+    top: 233px;
+    width: 600px;
+    height: 400px;
+    background: white;
+    display: none;
+}
+.ui-permission_MainDiv{
+    position: absolute;
+    left: 697px;
+    top: 233px;
+    width: 600px;
+    height: 400px;
+    background: white;
+    display: none;
+}
+.ui-branch_name{
+    position: absolute;
+    left: 173px;
+    top: 110px;
+    width: 263px;
+    height: 33px;
+    border: 1px solid black;
+}
+.ui-branch_Owner{
+    position: absolute;
+    left: 173px;
+    top: 166px;
+    width: 263px;
+    height: 33px;
+    border: 1px solid black;
+}
+.ui-permissionChanges{
+    position: absolute;
+    left: 184px;
+    top: 221px;
+    width: 243px;
+    height: 42px;
+    background: #0088ff;
+    border-radius: 3px;
+    font-size: 19px;
+    font-family: sans-serif;
+    color: white;
+}
+.ui-features_Details{
+    font-size: 16px;
+    padding-right: 10px;
+    display: inline-block;
+    width: 512px;
+    font-family: proxima_nova_rgregular;
+    margin-left: 105px;
+    border-right: 3px solid #dedede;
+    overflow: scroll;
+}
+.ui-tbranchInfo{
+    font-family: proxima_novasemibold;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 0px;
+
+}
+.ui-tfeatures_DetailsTitle{
+    margin-top: 24px;
+    position: relative;
+    font-family: proxima_novasemibold;
+    font-size: 20px;
+    margin-left: 13px;
+}
+.ui-tUsecasesTitle{
+    margin-top: -41px;
+    font-family: proxima_novasemibold;
+    font-size: 20px;
+    margin-left: 29px;
+    position: absolute;
+    display: inline-block;
+}
+.ui-features_Details,.ui-tUsecases ol {
+    line-height: 27px;
+}
+.ui-branchTagDiff{
+    padding: 59px;
+    border-top: 10px solid #efefef;
+    margin: 23px;
+}
+.ui-tUsecases{
+    
+    font-size: 16px;
+    position: absolute;
+    display: inline-block;
+    border-left: 3px solid #dedede;
+    margin-left: -3px;
+    overflow: scroll;
+    width: 731px;
+    padding-left: 18px;
+}
+.ui-urf{
+    display: none;
+    position: absolute;
+    width: 252px;
+    height: 241px;
+    left: 246px;
+    background: #141516;
+    z-index: 13;
+}
+.ui-urf-tft,.ui-urf-rc,.ui-urf-wfr,.ui-urf-rtp,.ui-urf-eu {
+    padding: 14px;
+    text-align: center;
+    text-indent: -1px;
+}
+.ui-merge{
+    position: absolute;
+    left: 1246px;
+    top: 20px;
+    width: 39px;
+    height: 39px;
+    border-radius: 3px;
+    font-size: 19px;
+    font-family: sans-serif;
+    color: white;
+    cursor: pointer;
+    background-image: url(../images/merged.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.ui-MergeBranch_name{
+    position: absolute;
+    left: 566px;
+    top: 110px;
+    width: 263px;
+    height: 33px;
+    border: 1px solid black;
+}
+.ui-branchMerge_selectOption{
+    position: absolute;
+    left: 566px;
+    top: 20px;
+    width: 263px;
+    height: 39px;
+    border-radius: 3px;
+    font-size: 19px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+.ui-branchMerge{
+    position: absolute;
+    left: 576px;
+    top: 277px;
+    width: 243px;
+    height: 42px;
+    background: #0088ff;
+    border-radius: 3px;
+    font-size: 19px;
+    font-family: sans-serif;
+    color: white;
+}
+.ui-branchLogDiv{
+    position: absolute;
+    width: 1101px;
+    height: 840px;
+    left: 364px;
+    top: 0px;
+    background: #1a1a1a;
+    z-index: 1;
+    color: white;
+}
+.ui-logtxt {
+    font-family: inherit;
+    font-size: 18px;
+    margin: 90px;
+    line-height: 27px;
+}
+.ui-change_proName {
+    margin-left: 176px;
+    margin-top: 37px;
+}
+
+.ui-sdMain {
+    display: none;
+    position: absolute;
+    width: 600px;
+    height: 350px;
+    z-index: 1;
+    background: white;
+    left: 610px;
+    top: 283px;
+    font-size: 20px;
+    font-family: proxima_novasemibold;
+}
+
+.ui-sd-buildName {
+    width: 336px;
+    height: 34px;
+    display: inline-block;
+    position: relative;
+    border: 1px solid #d2d2d2;
+    margin-top: 33px;
+    overflow: scroll;
+}
+.ui-sdMain span{
+    padding: 27px;
+    line-height: 77px
+}
+.ui-sd-buildUrl{
+    width: 343px;
+    height: 34px;
+    margin-left: 17px;
+    display: inline-block;
+}
+.ui-Submit {
+    position: absolute;
+    top: 279px;
+    left: 276px;
+    width: 132px;
+    height: 43px;
+    background: #2e8fda;
+    color: white;
+    font-size: 19px;
+    border-radius: 9px;
+}
+.ui-sd{
+    width: 100%;
+    height: 100%;
+    
+    z-index: 9;
+    position: absolute;
+}
+/*-------------------------------------------------------------------------------------*/
+
+.ui-fl {
+    float: left;
+}
+.ui-fr {
+    float: right;
+}
+
+.ui-branc-details{
+    display: inline-block;
+    margin: 1.2%;
+    width: 440px;
+    height: 180px;
+    box-shadow: 3px 0px 10px 2px #d0c8c8;
+    list-style: none;
+    position: relative;
+    overflow:hidden;
+    cursor: pointer;
+    text-align: left;
+}
+
+.ui-Priority {
+    width: 40%;
+    height: 53%;
+    position: absolute;
+    background-image: url(../images/Regular.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: rotate(325deg);
+    left: -81px;
+    top: -73px;
+}
+.ui-userPic {
+    background-image: url('https://people.zoho.com/zpeoplehr/viewPhoto?erecno=2803000009534406&mode=1&avatarid=731');
+    width: 180px;
+    height: 180px;
+    background-repeat: no-repeat;
+    background-size: 180px 180px;
+    margin-right: 10px;
+}
+.ui-branchName {
+    font-weight: bold;
+    font-size: 16px;
+    white-space: normal;
+    width: 240px;
+    word-break: break-all;
+    padding: 7px 0px;   
+}
+.ui-branchInfo {
+    overflow: hidden;
+    padding-top: 16px;
+    border-top: 1px solid #4a4a4ac2;
+    padding-bottom: 14px;
+    width: 240px;
+    height: 90px;
+}
+.ui-branchInfo li {
+    margin-bottom: 5px;
+}
+.ui-branchInfo div {
+    padding-left: 10px;
+}
+.ui-branchInfo div div {
+    margin-bottom: 5px;
+}
+.ui-branchInfo ol {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.ui-view, .ui-edit {
+    font-weight: bold;
+    font-size: 17px;
+    color: red;
+    padding: 5px 10px;
+    margin: 0px 5px 0px;
+}
+.ui-edit {
+    font-weight: bold;
+    font-size: 17px;
+    color: red;
+}
+.ui-footer {
+    width: calc(100% - 180px);
+    height: 18%;
+    bottom: 0%;
+    right: 0px;
+    position: absolute;
+    opacity: 1;
+    background: rgba(255,255,255,0.8);
+}
+.ui-Priority {
+    width: 40%;
+    height: 53%;
+    position: absolute;
+    background-image: url(../images/Regular.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: rotate(325deg);
+    left: -81px;
+    top: -73px;
+}
+.ui-sdIcon{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 292px;
+    top: 153px;
+    background-image: url(../images/sd.ico);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#ui-changeFilePathVal-MainDiv{
+    width: 1046px;
+    margin-left: -253px;
+    height: 200px;
+    margin-top: 40px;
+    border: 1px solid #ccc;
+    border-radius: 2px 2px 2px 2px;
+    background: #fff;
+    padding: 10px;
+    overflow: scroll;
+}
+.field__textbox{
+    font-size: 11px;
+    line-height: 16px;
+    border: 1px solid #ccc;
+    border-color: transparent;
+    background-color: #fff;
+    padding: 0 !important;
+    margin: 0;
+    box-sizing: border-box;
+    float: left;
+}
+.field__token{
+    background: #eaeaea;
+    color: #000;
+    border-color: #425769;
+    height: 23px;
+    padding: 1px 8px 1px 5px;
+    margin: 4px 4px 0 0;
+    border-radius: 2px 2px 2px 2px;
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+    max-width: 100%;
+    /*color: #000;
+    background-color: #fff;*/
+    border: 1px solid #ccc;
+}
+.field__close{
+    background: #cac8c8;
+    width: 16px;
+    display: inline-block;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    bottom: -1px;
+    border-radius: 0 3px 3px 0;
+    padding: 0 1px;
+    margin: 0;
+    cursor: pointer;
+}
+.field__icon {
+    margin: 1px 0;
+    width: 10px;
+    height: 10px;
+}
+.field__text{
+    padding-right: 13px;
+    font-size: 15px;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    cursor: default;
+    user-select: none;
+    box-sizing: border-box;
+    line-height: normal;
+    padding-top: 2px;
+}
+.ztokenfield__svg {
+    fill: #000000 !important;
+        width: inherit;
+    height: inherit;
+        margin: 1px 0;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+.ui-updateChangeFileVal {
+    display: none;
+    position: absolute;
+    width: 600px;
+    height: 159px;
+    z-index: 1;
+    background: white;
+    left: 610px;
+    top: 283px;
+    font-size: 20px;
+    font-family: proxima_novasemibold;
+}
+.ui-updateChangeFileVal span{
+    padding: 27px;
+    line-height: 77px
+}
+.ui-ChangeFileVal{
+    width: 343px;
+    height: 34px;
+    margin-left: 17px;
+    display: inline-block;
+    outline: none;
+}
+.ui-valueChange{
+    margin-left: 189px;
+    margin-top: 19px;
+    width: 243px;
+    height: 42px;
+    background: #0088ff;
+    border-radius: 3px;
+    font-size: 19px;
+    font-family: sans-serif;
+    color: white;
+}
+.ui-suggestion {
+    color: white;
+    background: #20252a;
+    width: 219px;
+    margin-left: 212px;
+    padding: 5px 0;
+}
+.ui-option{
+    padding: 5px 10px;
+}
+.ui-option:hover {
+    background: #4190f2;
+}
+.ui-selected{
+   background: #4190f2; 
+}
+.ui-none{
+    display: none;
+}
