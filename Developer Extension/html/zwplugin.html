@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/plugin.css">
+	<script src="/js/jquery-2.0.2.min.js"></script>
+	<script src="/js/jquery.ajaxupload.js"></script>
+	<script src="/js/dashboard.js"></script>
+
+	<script id="branchDetailTemp" type="text/template">
+		<li class="ui-branc-details clearfix">
+			<div class="ui-Priority" ></div>
+			<div class="ui-userPic ui-fl"></div>
+			<div class="ui-fl">
+				<div class="ui-branchName"></div>
+				<div class="ui-branchInfo"></div>
+			</div>
+			<div class="ui-footer clearfix">
+				<div class="ui-view ui-fr" >View</div>
+				<div class="ui-edit ui-fr">Edit</div>
+			</div>					
+		</li>
+	</script>
+	<script id="branch-info" type="text/template">
+	
+	</script>
+	<svg width="100%" height="100%" viewBox="0 0 1023 762" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; z-index: -1; visibility: hidden;">
+	    <defs>
+	        <linearGradient x1="83.9983662%" y1="0.727426473%" x2="50.7934488%" y2="96.5796159%" id="zw-gradient-1">
+	            <stop stop-color="#55A5F5" offset="0%"></stop>
+	            <stop stop-color="#1B53CD" offset="100%"></stop>
+	        </linearGradient>
+	        <linearGradient x1="121.020212%" y1="24.8708856%" x2="20.954605%" y2="80.3170859%" id="zw-gradient-2">
+	            <stop stop-color="#576B7C" offset="0%"></stop>
+	            <stop stop-color="#303C4D" offset="100%"></stop>
+	        </linearGradient>
+	        <filter x="-5.3%" y="-4.0%" width="109.1%" height="108.5%" filterUnits="objectBoundingBox" id="filter-3">
+	            <feOffset dx="-5" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+	            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+	            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.239187047 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+	            <feMerge>
+	                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+	                <feMergeNode in="SourceGraphic"></feMergeNode>
+	            </feMerge>
+	        </filter>
+	        <linearGradient x1="83.9983662%" y1="0.727426473%" x2="50%" y2="98.8700539%" id="zw-gradient-3">
+	            <stop stop-color="#00D4CC" offset="0%"></stop>
+	            <stop stop-color="#00A0A4" offset="100%"></stop>
+	        </linearGradient>
+	    </defs>
+		<symbol id="zw-icon" viewBox="0 0 1023 762">	    
+		    <g id="writer-logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		        <g id="Group-2" class="blue">
+		            <path d="M670.971741,0 L42.001741,0 C11.040741,0 -9.252259,32.481 4.254741,60.417 L201.296741,467.937 L338.054741,750.665 C345.335741,765.717 366.774741,765.72 374.060741,750.671 L406.132741,684.424 L710.538741,54.855 C719.445741,28.441 699.893741,0 670.971741,0" id="fill-path" style="fill: var(--r-fill);"></path>
+		            <path d="M261,592 L337.748,750.665 C345.029,765.717 366.468,765.72 373.754,750.671 L412.944,669.719 L450.528,592 L261,592 Z" id="Fill-1-Copy-2" style="fill:url(#zw-gradient-2)"></path>
+		        </g>
+		    </g>
+		</symbol>
+	</svg>
+</head>
+<body>
+	<div class="ui-chrome-addon">
+		<div class="ui-header">
+			<div class="ui-productLog"></div>
+			<div class="ui-userImage"></div>
+			<div class="ui-categoryes">
+				<div class="ui-catg ui-MyReviewPend">My Pending Reviews</div>
+				<div class="ui-catg ui-MyModuleReviewPend">Review Pending in My Module</div>
+				<div class="ui-catg ui-MyBranchReviewPend">My Branch Review Pending</div>
+			</div>
+		</div>
+		<div class="ui-data_listing">
+			<ul class="ui-MyPendReviewRcord clearfix">
+				
+			</ul>
+			<ul class="ui-MyModPendReviewRecord clearfix">
+				
+			</ul>
+			<ul class="ui-MyBraPendReviewRecord clearfix">
+				
+			</ul>
+			<div id="loadingmsg" class="loader">
+				<span><svg class="zbutton__svg" width="100%" height="100%" viewBox="0 0 1023 762"><use xlink:href="#zw-icon"></use></svg></span>
+				<span><svg class="zbutton__svg" width="100%" height="100%" viewBox="0 0 1023 762"><use class="green" xlink:href="#zw-icon"></use></svg></span>
+			</div>
+			<p class="ui-errorMsg"> No records match your specified criteria!</p>			
+		</div>
+		<div class="ui-right-panel ui-branch-panel">
+			<i style="cursor:pointer" class="ui-fr ui-icon-close"></i>
+			<p class="ui-showBranchname"></p>
+			<div class="ui-info-container">
+				<table class="ui-info">
+					
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	
+</body>
+</html>
